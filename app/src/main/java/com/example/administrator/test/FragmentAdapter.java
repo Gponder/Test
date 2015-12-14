@@ -32,6 +32,6 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return false;
+        return ((Fragment)object).getView() == view;
     }
 }

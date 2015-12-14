@@ -34,9 +34,15 @@ public class BlankFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),FirstActivity.class);
                 startActivity(intent);
+                startActivityForResult(intent,110);
+                getActivity().startActivityForResult(intent,110);
             }
         });
         return view;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
