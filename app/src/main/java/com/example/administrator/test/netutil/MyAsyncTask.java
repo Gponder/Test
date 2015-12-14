@@ -14,6 +14,11 @@ public class MyAsyncTask extends AsyncTask {
     }
 
     @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
     protected Object doInBackground(Object[] objects) {
 
         return null;
