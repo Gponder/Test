@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
+import org.apache.http.conn.ClientConnectionManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,5 +27,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+//        ClientConnectionManager
     }
 }
