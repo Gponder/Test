@@ -11,12 +11,14 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.protocol.ClientContext;
+import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.DefaultedHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,10 +37,12 @@ public class HttpClientAsyncTask extends AsyncTask {
     public void defaultHttpClient(){
         HttpClient httpClient = new DefaultHttpClient();
         HttpUriRequest httpUriRequest = new HttpGet("http://www.baidu.com");
-        HttpUriRequest post = new HttpPost("http://www.baidu.com");
-//        HttpParams httpParams = new DefaultedHttpParams()
-//        post.setParams(httpParams);
+        HttpPost post = new HttpPost("http://www.baidu.com");
         try {
+            InputStream is = new FileInputStream("baidu");
+            HttpEntity httpEntity = new InputStreamEntity(is,is.available());
+//            MultipartEntity
+            post.setEntity(httpEntity);
             HttpResponse reponse = httpClient.execute(httpUriRequest);
             HttpEntity entity = reponse.getEntity();
             InputStream content = entity.getContent();
@@ -55,7 +59,7 @@ public class HttpClientAsyncTask extends AsyncTask {
         BasicHttpContext basicHttpContext = new BasicHttpContext();
         basicHttpContext.setAttribute(ClientContext.COOKIE_STORE,new BasicCookieStore());
         try {
-            httpClient.execute(null,basicHttpContext);
+            HttpResponse res = httpClient.execute(null, basicHttpContext);
         } catch (IOException e) {
             e.printStackTrace();
         }

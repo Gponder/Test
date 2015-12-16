@@ -7,6 +7,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -44,7 +45,7 @@ public class MyAsyncTask extends AsyncTask {
             String path = sdcard+"/"+"baiduwenjian";
             File f = new File(path);
             if (f.exists()){
-
+//                DataOutputStream
             }else {
 //                f.mkdirs();
                 FileOutputStream fos = new FileOutputStream(f);
