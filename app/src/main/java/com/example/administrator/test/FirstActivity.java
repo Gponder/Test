@@ -1,11 +1,13 @@
 package com.example.administrator.test;
 
 import android.appwidget.AppWidgetProvider;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.RemoteViews;
 
+import com.example.administrator.test.netutil.HttpClientAsyncTask;
 import com.example.administrator.test.netutil.MyAsyncTask;
 
 import java.io.File;
@@ -22,6 +24,11 @@ public class FirstActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-        new MyAsyncTask().execute("a","b","c");
+        for (int i=0;i<500;i++){
+            String task = "task@"+i;
+            new MyAsyncTask().execute("a","b","c");
+            new HttpClientAsyncTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,task);
+
+        }
     }
 }
