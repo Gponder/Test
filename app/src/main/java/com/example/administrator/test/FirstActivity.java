@@ -18,6 +18,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class FirstActivity extends ActionBarActivity {
 
@@ -26,6 +28,8 @@ public class FirstActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 //      new MyAsyncTask().execute("a","b","c");
+
+//        ThreadPoolExecutor threadPoolExecutor =
 
         for (int i=0;i<500;i++){
             String task = "task@"+i;
