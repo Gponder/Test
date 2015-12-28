@@ -28,6 +28,7 @@ import java.io.OutputStream;
  * Created by Administrator on 2015/12/16.
  */
 public class HttpClientAsyncTask extends AsyncTask {
+//  请求方法 空格 url 空格 协议版本 回车换行   请求行
     @Override
     protected Object doInBackground(Object[] objects) {
         this.defaultHttpClient();
